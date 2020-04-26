@@ -1,0 +1,7 @@
+tls_cert:
+tls_key:
+
+redirect_list:
+  code.ted.mk:
+    port: 5001
+    websocket: True
