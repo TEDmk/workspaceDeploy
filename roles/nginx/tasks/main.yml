@@ -1,0 +1,26 @@
+
+
+- name: Install nginx with APT
+  apt:
+    name: nginx
+
+- name: Copy TLS cert
+  copy:
+    content: "{{ tls_cert }}"
+    dest: /etc/nginx/tls.pem
+    mode: "0600"
+
+- name: Copy TLS key
+  copy:
+    content: "{{ tls_key }}"
+    dest: /etc/nginx/tls.key
+    mode: "0600"
+
+- name: template configuration
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+    mode: "0644"
+
+- name: Restart nginx
+  shell: service nginx restart
