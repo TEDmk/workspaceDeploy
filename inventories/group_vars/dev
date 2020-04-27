@@ -1,0 +1,5 @@
+codeserver_port: 5001
+redirect_list:
+  code.ted.mk:
+    port": "{{ codeserver_port }}"
+    websocket: true

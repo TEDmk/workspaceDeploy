@@ -1,0 +1,5 @@
+[all]
+dev
+
+[dev]
+ted.mk ansible_user=root
