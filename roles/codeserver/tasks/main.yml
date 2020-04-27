@@ -21,7 +21,7 @@
 - name: Unarchive codeserver
   unarchive:
     src: "{{ codeserver_url }}"
-    dest: /opt/codeserver
+    dest: /opt
     remote_src: yes
     list_files: yes
     owner: codeuser
@@ -30,7 +30,7 @@
 - name: Add codeserver service
   template:
     src: codeserver.service.j2
-    dest: /etc/systemd/codeserver.service
+    dest: /etc/systemd/system/codeserver.service
 
 - name: Start Codeserver service
   shell: systemctl restart codeserver

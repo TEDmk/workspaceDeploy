@@ -1,0 +1,6 @@
+codeserver_version: "3.1.1"
+codeserver_name: "code-server-{{ codeserver_version }}-linux-x86_64"
+codeserver_url: "https://github.com/cdr/code-server/releases/download/{{ codeserver_version }}/{{ codeserver_name }}.tar.gz"
+codeserver_ip: "127.0.0.1"
+codeserver_port: 5001
+codeserver_password:

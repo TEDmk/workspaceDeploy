@@ -1,4 +1,0 @@
-codeserver_url: "https://github.com/cdr/code-server/releases/download/3.1.1/code-server-3.1.1-linux-x86_64.tar.gz"
-codeserver_ip: "127.0.0.1"
-codeserver_port: 5001
-codeserver_password:
