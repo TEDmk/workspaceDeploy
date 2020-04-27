@@ -25,9 +25,5 @@
 - name: Restart nginx
   shell: service nginx restart
 
-
-- name: Start Nginx service
-  shell: systemctl restart nginx
-
 - name: Nginx at startup
   shell: systemctl enable nginx
