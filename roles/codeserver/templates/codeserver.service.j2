@@ -1,0 +1,14 @@
+[Unit]
+Description=Code Server
+After=network-online.target
+
+[Service]
+Type=simple
+User=codeuser
+Group=codeuser
+Environment="PASSWORD={{ codeserver_password }}"
+ExecStart=/opt/codeserver/codeserver --host {{ codeserver_ip }} --port {{ codeserver_port }} --disable-ssh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
