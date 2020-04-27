@@ -1,0 +1,39 @@
+- name: Add group "codeuser"
+  group:
+    name: codeuser
+    gid: 2010
+    state: present
+
+- name: Add user "codeuser"
+  user:
+    name: codeuser
+    comment: "User for Code Server"
+    uid: 2001
+    group: codeuser
+    append: yes
+    shell: /bin/bash
+
+- name: Create codeserver folder
+  file:
+    path: /opt/codeserver
+    state: directory
+
+- name: Unarchive codeserver
+  unarchive:
+    src: "{{ codeserver_url }}"
+    dest: /opt/codeserver
+    remote_src: yes
+    list_files: yes
+    owner: codeuser
+    group: codeuser
+
+- name: Add codeserver service
+  template:
+    src: codeserver.service.j2
+    dest: /etc/systemd/codeserver.service
+
+- name: Start Codeserver service
+  shell: systemctl restart codeserver
+
+- name: Codeserver at startup
+  shell: systemctl enable codeserver
