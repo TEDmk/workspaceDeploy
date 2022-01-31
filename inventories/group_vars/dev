@@ -3,3 +3,5 @@ redirect_list:
   code.ted.mk:
     port: "{{ codeserver_port }}"
     websocket: true
+tls_key: ~/.tls/tls.key
+tls_cert: ~/.tls/tls.cert

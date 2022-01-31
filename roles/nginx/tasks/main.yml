@@ -3,27 +3,33 @@
 - name: Install nginx with APT
   apt:
     name: nginx
+  become: yes
 
 - name: Copy TLS cert
   copy:
-    content: "{{ tls_cert }}"
+    src: "{{ tls_cert }}"
     dest: /etc/nginx/tls.pem
     mode: "0600"
+  become: yes
 
 - name: Copy TLS key
   copy:
-    content: "{{ tls_key }}"
+    src: "{{ tls_key }}"
     dest: /etc/nginx/tls.key
     mode: "0600"
+  become: yes
 
 - name: template configuration
   template:
     src: nginx.conf.j2
     dest: /etc/nginx/nginx.conf
     mode: "0644"
+  become: yes
 
 - name: Start Nginx service
   shell: systemctl restart nginx
+  become: yes
 
 - name: Nginx at startup
   shell: systemctl enable nginx
+  become: yes

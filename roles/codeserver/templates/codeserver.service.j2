@@ -7,7 +7,7 @@ Type=simple
 User=codeuser
 Group=codeuser
 Environment="PASSWORD={{ codeserver_password }}"
-ExecStart=/opt/{{ codeserver_name }}/code-server --host {{ codeserver_ip }} --port {{ codeserver_port }} --disable-ssh
+ExecStart=/opt/{{ codeserver_name }}/code-server --host {{ codeserver_ip }} --port {{ codeserver_port }}
 Restart=on-failure
 
 [Install]

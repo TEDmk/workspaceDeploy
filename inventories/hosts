@@ -1,2 +1,3 @@
 [dev]
-ted.mk ansible_user=root
+localhost ansible_user=root ansible_connection=local
+
